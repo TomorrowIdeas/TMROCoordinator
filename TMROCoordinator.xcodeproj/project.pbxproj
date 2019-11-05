@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63446F2237130E600503A5F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63446F1237130E600503A5F /* Coordinator.swift */; };
+		D63446F42371315B00503A5F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63446F32371315B00503A5F /* Router.swift */; };
+		D63446F6237131C800503A5F /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63446F5237131C800503A5F /* Presentable.swift */; };
+		D63446F8237131E400503A5F /* Dismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63446F7237131E400503A5F /* Dismissable.swift */; };
+		D63446FA2371339B00503A5F /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63446F92371339B00503A5F /* CoordinatorType.swift */; };
 		D6D91C1C236FE1C70097235D /* TMROCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D91C1A236FE1C70097235D /* TMROCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D63446F1237130E600503A5F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D63446F32371315B00503A5F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D63446F5237131C800503A5F /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		D63446F7237131E400503A5F /* Dismissable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismissable.swift; sourceTree = "<group>"; };
+		D63446F92371339B00503A5F /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		D6D91C17236FE1C70097235D /* TMROCoordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMROCoordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D91C1A236FE1C70097235D /* TMROCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMROCoordinator.h; sourceTree = "<group>"; };
 		D6D91C1B236FE1C70097235D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +58,11 @@
 			children = (
 				D6D91C1A236FE1C70097235D /* TMROCoordinator.h */,
 				D6D91C1B236FE1C70097235D /* Info.plist */,
+				D63446F1237130E600503A5F /* Coordinator.swift */,
+				D63446F32371315B00503A5F /* Router.swift */,
+				D63446F5237131C800503A5F /* Presentable.swift */,
+				D63446F7237131E400503A5F /* Dismissable.swift */,
+				D63446F92371339B00503A5F /* CoordinatorType.swift */,
 			);
 			path = TMROCoordinator;
 			sourceTree = "<group>";
@@ -95,6 +110,7 @@
 				TargetAttributes = {
 					D6D91C16236FE1C70097235D = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -131,6 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63446F8237131E400503A5F /* Dismissable.swift in Sources */,
+				D63446F42371315B00503A5F /* Router.swift in Sources */,
+				D63446F2237130E600503A5F /* Coordinator.swift in Sources */,
+				D63446F6237131C800503A5F /* Presentable.swift in Sources */,
+				D63446FA2371339B00503A5F /* CoordinatorType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +209,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -245,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -260,6 +281,7 @@
 		D6D91C20236FE1C70097235D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7KLRW8RU62;
@@ -276,6 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomorrowideas.TMROCoordinator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +307,7 @@
 		D6D91C21236FE1C70097235D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7KLRW8RU62;
