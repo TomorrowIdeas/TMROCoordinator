@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Coordinator<Result>: CoordinatorType {
+open class Coordinator<Result>: CoordinatorType {
 
-    let router: Router
+    public let router: Router
     
     private var onFinishedFlow: ((Result) -> Void)?
 
@@ -27,9 +27,9 @@ public class Coordinator<Result>: CoordinatorType {
         self.router = router
     }
 
-    public func start() { }
+    open func start() { }
 
-    public func addChildAndStart<ChildResult>(_ coordinator: Coordinator<ChildResult>,
+    open func addChildAndStart<ChildResult>(_ coordinator: Coordinator<ChildResult>,
                                        finishedHandler: @escaping (ChildResult) -> Void) {
         guard self.childCoordinator == nil else {
             print("WARNING!!!!! ATTEMPTING TO ADD CHILD COORDINATOR \(coordinator)"
@@ -45,15 +45,15 @@ public class Coordinator<Result>: CoordinatorType {
         coordinator.start()
     }
 
-    public func removeChild() {
+    open func removeChild() {
         self.childCoordinator = nil
     }
 
-    public func removeFromParent() {
+    open func removeFromParent() {
         self.parentCoordinator?.removeChild()
     }
 
-    public func finishFlow(with result: Result) {
+    open func finishFlow(with result: Result) {
         self.removeFromParent()
         self.onFinishedFlow?(result)
     }

@@ -12,7 +12,7 @@ import UIKit
 // An object that can present Presentable objects via a navigation controller push, or modally.
 // Optionally, a cancel handler can be provided to execute code when the Presentable is dismissed
 // prematurely by something other than the router.
-public class Router: NSObject, UINavigationControllerDelegate {
+open class Router: NSObject, UINavigationControllerDelegate {
 
     unowned let navController: UINavigationController
 
@@ -31,7 +31,7 @@ public class Router: NSObject, UINavigationControllerDelegate {
 
     // The cancel handler is called when the presented module is dimissed
     // by something other than this router.
-    public func present(_ module: Presentable,
+    open func present(_ module: Presentable,
                         source: UIViewController,
                         cancelHandler: (() -> Void)? = nil,
                         animated: Bool = true,
@@ -55,7 +55,7 @@ public class Router: NSObject, UINavigationControllerDelegate {
                        completion: completion)
     }
 
-    public func dismiss(source: UIViewController,
+    open func dismiss(source: UIViewController,
                         animated: Bool = true,
                         completion: (() -> Void)? = nil) {
 
@@ -70,7 +70,7 @@ public class Router: NSObject, UINavigationControllerDelegate {
 
     // The cancel handler is called when the presented module is popped off the nav stack
     // by something other than this router.
-    public func push(_ module: Presentable,
+    open func push(_ module: Presentable,
                      cancelHandler: (() -> Void)? = nil,
                      animated: Bool = true) {
 
@@ -89,25 +89,25 @@ public class Router: NSObject, UINavigationControllerDelegate {
         self.navController.pushViewController(viewController, animated: animated)
     }
 
-    public func popModule(animated: Bool) {
+    open func popModule(animated: Bool) {
         self.isDismissing = true
         self.navController.popViewController(animated: animated)
     }
 
-    public func setRootModule(_ module: Presentable, animated: Bool = true) {
+    open func setRootModule(_ module: Presentable, animated: Bool = true) {
         self.isDismissing = true
         self.navController.setViewControllers([module.toPresentable()], animated: animated)
     }
 
     // MARK: UINavigationControllerDelegate
 
-    public func navigationController(_ navigationController: UINavigationController,
+    open func navigationController(_ navigationController: UINavigationController,
                                      didShow viewController: UIViewController,
                                      animated: Bool) {
         self.isDismissing = false
     }
 
-    public func navigationController(_ navigationController: UINavigationController,
+    open func navigationController(_ navigationController: UINavigationController,
                                      animationControllerFor operation: UINavigationController.Operation,
                                      from fromVC: UIViewController,
                                      to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
