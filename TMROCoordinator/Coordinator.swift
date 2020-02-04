@@ -30,11 +30,13 @@ open class Coordinator<Result>: CoordinatorType {
     open func start() { }
 
     open func addChildAndStart<ChildResult>(_ coordinator: Coordinator<ChildResult>,
-                                       finishedHandler: @escaping (ChildResult) -> Void) {
-        guard self.childCoordinator == nil else {
-            print("WARNING!!!!! ATTEMPTING TO ADD CHILD COORDINATOR \(coordinator)"
+                                            finishedHandler: @escaping (ChildResult) -> Void) {
+        // If we already have a child coordinator, log a warning. While this isn't ideal, it helps
+        // prevent apps from getting locked up due to a coordinator not finishing or being presented
+        // properly.
+        if self.childCoordinator != nil {
+            print("WARNING!!!!! ADDING CHILD COORDINATOR \(coordinator)"
                 + " TO COORDINATOR \(self) THAT ALREADY HAS ONE \(self.childCoordinator!)")
-            return
         }
 
         coordinator.parentCoordinator = self
